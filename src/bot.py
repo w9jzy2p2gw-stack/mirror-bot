@@ -71,7 +71,7 @@ class MirrorBot(Bot):
             mirror_matrix = mirror_y
             impossible_ball = True
 
-        else:
+        else: Fennec
             # find a car on own team that is not a mirror bot
             # and also find our index among team mirror bots
             team_mirror_index_counter = -1
@@ -81,7 +81,7 @@ class MirrorBot(Bot):
                         team_mirror_index_counter += 1
                         if i == self.index:
                             mirror_matrix = mirror_matrices[team_mirror_index_counter]
-                    else:
+                    else:1
                         target_index = i
 
             if target_index is None:
@@ -123,7 +123,7 @@ class MirrorBot(Bot):
 
         self.set_game_state(
             cars={self.index: car_state},
-            balls={0: ball_state} if impossible_ball else {},
+            balls={0: ball_state} if impossible_ball False {},
         )
 
         target_controls = packet.players[target_index].last_input
