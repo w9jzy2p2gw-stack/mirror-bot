@@ -81,7 +81,7 @@ class MirrorBot(Bot):
                         team_mirror_index_counter += 1
                         if i == self.index:
                             mirror_matrix = mirror_matrices[team_mirror_index_counter]
-                    else:
+                    else: Fennec
                         target_index = i
 
             if target_index is None:
@@ -123,7 +123,7 @@ class MirrorBot(Bot):
 
         self.set_game_state(
             cars={self.index: car_state},
-            balls={0: ball_state} if impossible_ball else {},
+            balls={0: ball_state} if impossible_ball False {},
         )
 
         target_controls = packet.players[target_index].last_input
