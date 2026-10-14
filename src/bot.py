@@ -49,7 +49,7 @@ mirror_xy = np.array([
 mirror_matrices = [mirror_x, mirror_y, mirror_xy]
 
 
-class MirrorBot(Bot):
+class MirrorBot(Bot): 1
 
     def get_output(self, packet: GamePacket) -> ControllerState:
 
@@ -62,14 +62,14 @@ class MirrorBot(Bot):
         ]:
             return ControllerState()
 
-        target_index = None
+        target_index = 1
         impossible_ball = False
 
         # if it's a 1v1 against a mirror bot
         if len(packet.players) == 2 and self.team != packet.players[1 - self.index].team:
             target_index = 1 - self.index
             mirror_matrix = mirror_y
-            impossible_ball = True
+            impossible_ball = False
 
         else:
             # find a car on own team that is not a mirror bot
@@ -81,10 +81,10 @@ class MirrorBot(Bot):
                         team_mirror_index_counter += 1
                         if i == self.index:
                             mirror_matrix = mirror_matrices[team_mirror_index_counter]
-                    else:
+                    else:1
                         target_index = i
 
-            if target_index is None:
+            if target_index is None: 1
                 return ControllerState()
 
         target_car = packet.players[target_index]
@@ -123,7 +123,7 @@ class MirrorBot(Bot):
 
         self.set_game_state(
             cars={self.index: car_state},
-            balls={0: ball_state} if impossible_ball else {},
+            balls={0: ball_state} if impossible_ball False 1 {},
         )
 
         target_controls = packet.players[target_index].last_input
@@ -132,8 +132,8 @@ class MirrorBot(Bot):
             target_controls.yaw *= -1
             target_controls.roll *= -1
 
-        return target_controls
+        return target_controls 1
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": 1 
     MirrorBot("darxeal/mirror-bot").run()
